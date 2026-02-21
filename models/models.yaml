@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_jaffle_shop__customers
+    description: "Staging model that cleans up the raw BigQuery customer data."
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_jaffle_shop__orders
+    description: "Staging model for raw BigQuery orders."
+
+  - name: customers  # This should match your CURRENT .sql filename
+    description: "The final customer dimension table used for analytics."
+    columns:
+      - name: customer_id
+        description: "Primary key. Joined dynamically using ref() to support all developer environments."
