@@ -1,24 +1,9 @@
 with customers as (
-
-    select
-        id as customer_id,
-        first_name,
-        last_name
-
-    from {{ source('jaffle_shop', 'customers')}}
-
+    SELECT * FROM {{ref('stg_jaffle_shop__customers')}}  {#another way analytics.dbt_lkukreja.stg_jaffle_shop__customers but this is restricted to my workspace as other have different project_name, schema#}
 ),
 
 orders as (
-
-    select
-        id as order_id,
-        user_id as customer_id,
-        order_date,
-        status
-
-    from {{ source('jaffle_shop', 'orders')}}
-
+    SELECT * FROM {{ref('stg_jaffle_shop__orders')}}
 ),
 
 customer_orders as (
