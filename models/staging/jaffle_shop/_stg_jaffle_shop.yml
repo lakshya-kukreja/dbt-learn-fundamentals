@@ -18,3 +18,9 @@ models:
           - accepted_values:
               arguments:  # This is the new required field for v2.0
                 values: ['completed', 'placed', 'return_pending', 'returned', 'shipped']
+      - name: customer_id
+        data_tests:
+          - relationships:
+              arguments:
+                field: customer_id
+                to: ref('stg_jaffle_shop__customers')
