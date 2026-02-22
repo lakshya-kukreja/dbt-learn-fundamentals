@@ -4,6 +4,18 @@ sources:
   - name: jaffle_shop
     database: de-zoomcamp-2-485306  # Your project ID from your screenshot
     schema: jaffle_shop
+    config:
+      freshness:
+        warn_after:
+          count: 3000
+          period: day # Change 'hour' to so many 'day' as it's dataset is static so not updated hence give warning and errors
+        error_after:
+          count: 4000
+          period: day 
+      loaded_at_field: CAST(order_date AS TIMESTAMP) # recors when the data was last loaded or updated in warehouse
     tables:
       - name: customers
+        config:
+          freshness: null # this is because no such column that gives info about the update of time exits
       - name: orders
+        

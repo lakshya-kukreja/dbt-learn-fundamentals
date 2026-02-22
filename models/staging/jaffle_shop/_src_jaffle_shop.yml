@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    database: de-zoomcamp-2-485306  # Your project ID from your screenshot
+    schema: jaffle_shop #raw_data schema
     tables:
-      - name: customers
-      - name: orders
       - name: payment
