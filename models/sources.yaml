@@ -2,6 +2,7 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    description: A clone of postgres database
     database: de-zoomcamp-2-485306  # Your project ID from your screenshot
     schema: jaffle_shop
 
@@ -18,14 +19,17 @@ sources:
       loaded_at_field: CAST(order_date AS TIMESTAMP) # recors when the data was last loaded or updated in warehouse
     tables:
       - name: customers
+        description: Raw Customers Data
         columns: 
           - name: id
+            description: primary key for the customers data table
             data_tests:
               - unique
               - not_null
         config:
           freshness: null # this is because no such column that gives info about the update of time exits
       - name: orders
+
         columns:
           - name: id
             data_tests:
